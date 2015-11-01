@@ -4,7 +4,7 @@ How to make stretchy header with Auto Layout
 ![](./Assets/Demo.gif)
 
 ## How to
-See the Demo project
+The blog post is [iOS Stretchy Header With Auto Layout](http://www.fantageek.com/blog/2015/11/02/ios-stretchy-header-with-auto-layout/)
 
 ## Author
 
