@@ -1,7 +1,10 @@
 # Stretchy Header
 How to make stretchy header with Auto Layout
 
+![](./Assets/Demo.gif)
+
 ## How to
+See the Demo project
 
 ## Author
 

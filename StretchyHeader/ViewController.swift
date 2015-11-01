@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     var titleLabel: UILabel!
     var contentLabel: UILabel!
 
+    // These are SnapKit Constraint
     var headerLessThanTopConstraint: Constraint?
     var headerTopConstraint: Constraint?
 
@@ -59,6 +60,8 @@ extension ViewController {
 
         scrollViewContentView.addSubview(header)
         header.snp_makeConstraints { make in
+            // Pin header to scrollView 's parent, which is now ViewController 's view
+            // When header is moved up, headerTopConstraint is not enough, so make its priority 999, and add another less than or equal constraint
             make.leading.trailing.equalTo(scrollViewContentView)
             self.headerTopConstraint =  make.top.equalTo(view.snp_top).priority(999).constraint
             self.headerLessThanTopConstraint = make.top.lessThanOrEqualTo(view.snp_top).constraint
@@ -75,7 +78,9 @@ extension ViewController {
         titleLabel.snp_makeConstraints { make in
             make.leading.equalTo(scrollViewContentView).offset(20)
             make.trailing.equalTo(scrollViewContentView).offset(-20)
+            // Pin to the header to make it stretchy
             make.top.equalTo(header.snp_bottom).offset(20)
+            // Pin to the content view to help determine scrollView contentSize
             make.top.equalTo(scrollViewContentView.snp_top).offset(headerHeight)
         }
     }
